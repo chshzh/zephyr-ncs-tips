@@ -7,6 +7,7 @@ A collection of useful tips, tricks, and configurations for working with Zephyr 
 - [Code Formatting](#code-formatting)
 - [Disable Verification Process to Speed Up Flashing](#disable-verification-process-to-speed-up-flashing)
 - [Checkpath Usage and Git Hooks](#checkpath-usage-and-git-hooks)
+- [J-Link OB configuration for nRF DK](#j-link-ob-configuration-for-nrf-dk)
 
 ## Code Formatting
 
