@@ -118,3 +118,28 @@ export ZEPHYR_BASE=/opt/nordic/ncs/v3.1.0/zephyr
 ```
 
 This is typically set automatically when you source the Zephyr environment setup script.
+
+## J-Link OB configuration for nRF DK
+1) Update J-Link firmware
+
+- Install the latest Segger J-Link package: https://www.segger.com/downloads/jlink/
+- Run the J-Link Commander (macOS: `JLinkExe`) and follow prompts to update firmware. Allow the app in System Preferences → Security & Privacy if blocked.
+
+2) macOS: avoid MSD interference
+
+- The DK can enumerate as a Mass Storage Device (MSD). macOS auto-mounting (Finder/Spotlight) can block J-Link operations. Before flashing/debugging either:
+
+   - Disable MSD on the board (if the DK exposes a button/menu), or
+   - Run J-Link Commander and issue `MSDDisable`.
+
+- If the MSD is already mounted, unmount it on macOS:
+
+   diskutil list
+   diskutil unmountDisk /dev/diskN   # replace N with the disk number
+
+- Re-enable the MSD after you're done with:
+
+   JLinkExe
+   MSDEnable
+
+That's it — update firmware, disable or unmount the MSD on macOS, perform your flash/debug, then re-enable the MSD.
